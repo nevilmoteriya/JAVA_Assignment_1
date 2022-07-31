@@ -1,0 +1,52 @@
+import java.util.*;
+public class Practical_8 {
+    public static void main(String[] args) {
+        char[] key = new char[10];
+            Scanner sc = new Scanner(System.in);
+            // here answer key is variable everytime the program runs
+            System.out.println("Enter the ans key : ");
+        for(int i =0;i<10;i++)
+        {
+            key[i] = sc.next().charAt(0);
+        }
+        // ans key is done
+        int n;
+        int mks=0,p=0;
+        System.out.println("enter the number of the student : ");
+        n=sc.nextInt();
+        int[] result = new int[n]; 
+        char[][] exam = new char[n][10];
+
+        // entering the marks for the students
+        for(int i = 0; i<n; i++)
+        {
+            for(int j=0; j<10;j++)
+            {
+                exam[i][j] = sc.next().charAt(0);
+            }
+        }
+        sc.close();
+
+        // checking the answers of students with the key
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0;j<10;j++)
+            {
+                if(exam[i][j] == key [j])
+                    {
+                        mks++;
+                    }
+            }
+            result[p] = mks;
+            p++;
+            mks =0;
+        }
+    // result of the students : 
+    System.out.println("result of the students : ");
+        for(int u=0; u<n; u++)
+        {
+            System.out.print("result of Student "+(u+1)+" is : ");   
+            System.out.println(result[u]+" ");    
+        }
+    }
+}
